@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Dangnhap";
+}
+
+
+<script src="~/Scripts/jquery-1.12.2.min.js"></script>
+<link href="~/Content/NguoidungCssLayOut/dangnhap.css" rel="stylesheet" />
+
+<section class="login">
+    <div class="titulo">Staff Login</div>
+    <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+
+        <input style="height:44px;width:240px" type="text" required title="Username required" placeholder="Username" data-icon="U" name="txttaikhoan">
+        <input style="height:44px;width:240px" type="password" required title="Password required" placeholder="Password" data-icon="x" name="txtmatkhau">
+        <div class="olvido">
+            <div class="col"><a href="#" title="Ver Carásteres">Register</a></div>
+            <div class="col"><a href="#" title="Recuperar Password">Fotgot Password?</a></div>
+        </div>
+        <button type="submit" id="btnsubmit" class="enviar" style="height:40px">
+            Đăng nhập
+        </button>
+    </form>
+
+    <h1 style="color:white; text-align:center"> @ViewBag.Thongbao</h1>
+
+</section>
+
+
+
+

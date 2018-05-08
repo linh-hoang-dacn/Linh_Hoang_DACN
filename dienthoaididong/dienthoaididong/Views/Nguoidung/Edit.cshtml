@@ -1,0 +1,106 @@
+﻿@model dienthoaididong.Models.Entities.khachhang
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/LayOut.cshtml";
+}
+
+@*Dùng để ẩn div nivoSlider*@
+<style>
+    .nivoSlider {
+        display: none;
+    }
+
+    .nivo-controlNav {
+        display: none;
+    }
+
+    .km {
+        display:none;
+    }
+</style>
+
+<style>
+    
+    .editor-label {
+        /*width: 100px;*/
+        float: left;
+    }
+    #khachhang_ns {
+        width: 295px;
+    }
+</style>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset style="width:600px">
+
+        @Html.HiddenFor(model => model.khachhang_id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_name)
+            @Html.ValidationMessageFor(model => model.khachhang_name)
+        </div>
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_ns)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_ns)
+            @Html.ValidationMessageFor(model => model.khachhang_ns)
+        </div>
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_diachi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_diachi)
+            @Html.ValidationMessageFor(model => model.khachhang_diachi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_sdt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_sdt)
+            @Html.ValidationMessageFor(model => model.khachhang_sdt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_taikhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_taikhoan)
+            @Html.ValidationMessageFor(model => model.khachhang_taikhoan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_matkhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_matkhau)
+            @Html.ValidationMessageFor(model => model.khachhang_matkhau)
+        </div>
+        <br />
+        <div style="font-size:20px">
+            <input style="color:blue" type="submit" value="Save" />
+            @Html.ActionLink("Back to List", "Index", "Home")
+        </div>
+        
+    </fieldset>
+}
+<style>
+    a:visited{
+        color:green;
+
+    }
+    a:hover{
+        color:red;
+    }
+</style>
+

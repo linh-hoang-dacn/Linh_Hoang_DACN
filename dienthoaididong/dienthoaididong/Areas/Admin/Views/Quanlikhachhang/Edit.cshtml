@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model  dienthoaididong.Models.Entities.khachhang
+
+
+
+
+<h2>Sửa khách hàng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_id)
+            @Html.ValidationMessageFor(model => model.khachhang_id)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_name)
+            @Html.ValidationMessageFor(model => model.khachhang_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_ns)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_ns)
+            @Html.ValidationMessageFor(model => model.khachhang_ns)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_diachi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_diachi)
+            @Html.ValidationMessageFor(model => model.khachhang_diachi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_sdt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_sdt)
+            @Html.ValidationMessageFor(model => model.khachhang_sdt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_taikhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_taikhoan)
+            @Html.ValidationMessageFor(model => model.khachhang_taikhoan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.khachhang_matkhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.khachhang_matkhau)
+            @Html.ValidationMessageFor(model => model.khachhang_matkhau)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+

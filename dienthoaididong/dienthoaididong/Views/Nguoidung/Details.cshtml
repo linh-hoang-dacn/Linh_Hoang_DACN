@@ -1,0 +1,90 @@
+﻿@model dienthoaididong.Models.Entities.khachhang
+
+@{
+    ViewBag.Title = "Dettails";
+    Layout = "~/Views/Shared/LayOut.cshtml";
+}
+
+@*Dùng để ẩn div nivoSlider*@
+<style>
+    .nivoSlider {
+        display: none;
+    }
+
+    .nivo-controlNav {
+        display: none;
+    }
+
+    .km {
+        margin-left: 0;
+        float: left;
+    }
+</style>
+<h2>Thông tin cá nhân</h2>
+
+
+<fieldset style="width:350px;font-size:20px">
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_name)
+    </div>
+    <div class="display-field">
+       @Html.DisplayFor(model => model.khachhang_name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_ns)
+    </div>
+    <div class="display-field">     
+        @Html.DisplayFor(model => model.khachhang_ns)      
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_diachi)
+    </div>
+    <div class="display-field">
+       @Html.DisplayFor(model => model.khachhang_diachi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_sdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_sdt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_taikhoan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_taikhoan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.khachhang_matkhau)
+    </div>
+    <div class="display-field">
+       @Html.DisplayFor(model => model.khachhang_matkhau)
+    </div>
+    <p >
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { ma_kh=Model.khachhang_id }) |
+        @Html.ActionLink("Back to List", "Index","Home")
+    </p>
+
+</fieldset>
+
+
+<style>
+    fieldset {
+        border: 0px solid #ddd;
+    }
+    .display-label{
+        float:left;
+        color:blue;
+    }
+    a:visited {
+        color: blue;
+    }
+    a:hover{
+        color:red;
+    }
+</style>

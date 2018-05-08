@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model dienthoaididong.Models.Entities.khachhang
+
+
+<h2>Chi tiết khách hàng</h2>
+<fieldset>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_id)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_ns)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_ns)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_diachi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_diachi)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_sdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_sdt)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_taikhoan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_taikhoan)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_matkhau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_matkhau)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { makh = Model.khachhang_id }) |
+    @Html.ActionLink("Delete", "Delete", new { makh = Model.khachhang_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    .display-label {
+        float: left;
+    }
+
+    .display-field {
+        margin-left: 100px;
+        color: blue;
+    }
+
+    a {
+        color: red;
+    }
+
+        a:hover {
+            color: blue;
+        }
+</style>

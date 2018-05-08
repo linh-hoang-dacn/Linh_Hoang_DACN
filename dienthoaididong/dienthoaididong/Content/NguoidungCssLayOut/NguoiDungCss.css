@@ -1,0 +1,133 @@
+﻿/*sử dụng độ rộng cho div toàn trang*/
+.toantrang{
+    position:relative;
+   
+}
+
+/*Thiết kế link đăng nhập, đăng kí*/
+.DangKyDangNhap{
+    font-size:20px;
+    margin-top:1%;
+    margin-left:0;
+    float:left;
+    color:green;
+    font-weight:bold;
+}
+.DangKyDangNhap  #ca{
+    float:left;
+}
+
+#kn a:visited {
+    color:white;
+}
+#kn a:link {
+    color:white;
+}
+
+#kn a:hover{
+    color:yellow;
+}
+
+/*.DangKyDangNhap a:link{
+    color:red;
+}*/
+#ggh a:visited{
+    color: red;
+}
+
+#ggh a:link{
+    color:red;
+}
+
+.DanngKyDangNhap a:hover{
+    text-decoration:none;
+    color:yellow;
+}
+.abc{
+    float:left;
+}
+
+.hinhdong{
+    padding-top:30px;
+
+}
+.chitietdth{
+    border:2px solid #f1c4c4;
+    border-radius: 10px 10px 10px 10px;
+    height:325px;
+    width:1000px;
+    margin-left:333px;
+    /*margin-top:5px;*/
+} 
+.ctietanh{
+    margin-top:0px;
+    height:327px;
+   
+}
+.ctietanh:hover{
+     box-shadow: 0 0 1px green; 
+}
+form{
+    width:180px;
+}
+
+.km{
+    background-color:#f1c4c4;
+    height:325px;
+    width:333px;
+    margin-top:0;
+    margin-left:0;
+    position:inherit;
+    margin-left:1000px;
+}
+.km a:hover{
+}
+.row{
+    width:600px;
+    float:left;
+    margin-left:40px;
+}
+.row:hover{
+    box-shadow: 0 0 1px green; 
+}
+.col-sm-4{
+    width:300px;
+    float:left;
+   text-align:left;
+}
+.col-sm-4 b{
+    color:black;
+}
+/*phần đăng ký*/
+fieldset{
+    margin-left:50px;
+    float:left;
+}
+.editor-label{
+    width:300px;
+}
+#khachhang_id  {
+    width:300px;
+}
+#khachhang_name{
+    width:300px;
+}
+ #khachhang_diachi{
+    width:300px;
+}
+#khachhang_ns {
+    width:300px;
+}
+#khachhang_sdt{
+    width:300px;
+}
+ #khachhang_taikhoan {
+    width:300px;
+}
+#khachhang_matkhau{
+    width:300px;
+}
+/*chỗ mục tìm kiếm trên thanh đầu trang*/
+.tim_kiem{
+    width:180px;
+}

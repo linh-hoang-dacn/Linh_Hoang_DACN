@@ -1,0 +1,9 @@
+﻿@using dienthoaididong.Models.Entities
+
+@model List<theloaisp>
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("Sanphamtheomuc", "Sanpham", new {@id_theloai=item.theloai_id })">@item.theloai_name</a></li>
+}
+

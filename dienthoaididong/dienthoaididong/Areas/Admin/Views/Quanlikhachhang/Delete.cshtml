@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model dienthoaididong.Models.Entities.khachhang
+
+<h3>Bạn có thực sự muốn xóa không?</h3>
+<fieldset>
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_id)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_ns)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_ns)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_diachi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_diachi)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_sdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_sdt)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_taikhoan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_taikhoan)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.khachhang_matkhau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.khachhang_matkhau)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+<style>
+    .display-label {
+        float: left;
+    }
+
+    .display-field {
+        margin-left: 100px;
+        color: blue;
+    }
+
+    a {
+        color: red;
+    }
+
+        a:hover {
+            color: blue;
+        }
+</style>

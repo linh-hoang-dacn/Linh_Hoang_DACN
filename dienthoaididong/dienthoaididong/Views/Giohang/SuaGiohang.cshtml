@@ -1,0 +1,98 @@
+﻿@using dienthoaididong.Models.Entities;
+@model List<Giohang>
+
+
+@{
+    ViewBag.Title = "SuaGiohang";
+    Layout = "~/Views/Shared/LayOut.cshtml";
+}
+
+
+<style>
+    .km {
+        display: none;
+    }
+
+    .nivoSlider {
+        display: none;
+    }
+
+    .nivo-controlNav {
+        display: none;
+    }
+
+    /*.km {
+        margin-left: 0;
+        float: left;
+    }*/
+</style>
+<h2>Giohang</h2>
+
+
+<table id="divGioHang">
+    <tr>
+        <td>Mã sản phẩm</td>
+
+        <td>Tên sản phẩm</td>
+
+        <td>Ảnh sản phẩm</td>
+
+        <td>Giá sản phẩm</td>
+
+        <td>Số lượng</td>
+
+        <td>Thành tiền</td>
+    </tr>
+</table>
+
+
+<table id="divGioHang">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.sanpham_id</td>
+
+            <td>@item.sanpham_name</td>
+
+            <td><img src="@Url.Content("~/Hinhanh/hinhanhsp/" +@item.hinhanh_sp)" style="width:50px;height:50px"><br></td>
+
+            <td>@string.Format("{0:0,0}", @item.gia_sp) VND</td>
+            @*chỉnh sửa giỏ hàng gọi về action*@
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @ma_sp = item.sanpham_id }))
+            {
+
+                @* Để người dùng sửa đc số lượng *@
+                <td>@Html.TextBox("txtSoluong", item.soluong_sp)</td>
+
+                <td>@string.Format("{0:0,0}", @item.thanhtien) VND</td>
+
+                <td>
+                    <input type="submit" value="Cập nhật" />
+                    <br />
+                    @Html.ActionLink("Xóa", "XoaGiohang", new { @ma_sp = item.sanpham_id })
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+
+
+<style>
+    #divGioHang {
+        border: 0.5px solid #808080;
+        width: 100%;
+    }
+
+        #divGioHang td {
+            padding: 10px;
+            border: 0.5px solid #808080;
+            width: 800px;
+        }
+
+    #gh a:visited {
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+

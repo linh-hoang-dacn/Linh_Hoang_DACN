@@ -1,0 +1,116 @@
+﻿@using dienthoaididong.Models.Entities
+
+@model sanpham
+<link rel="stylesheet" type="text/css" href="~/Content/NguoidungCssLayOut/NguoiDungCss.css" />
+
+
+<div id="bg" style="height: 220px; width:100%; background-image: url('/Hinhanh/Netcen Welcome.png')"> </div>
+<div style="background-color:#808080;height:2px"></div>
+
+@{
+    ViewBag.Title = "xemchitiet";
+    Layout = "~/Views/Shared/LayOut.cshtml";
+
+}
+@*Dùng để ẩn div nivoSlider*@
+<style>
+    .nivoSlider {
+        display: none;
+    }
+
+    .nivo-controlNav {
+        display: none;
+    }
+
+    .km {
+        margin-left: 0;
+        float: left;
+        margin-top: 222px;
+    }
+</style>
+
+@if (@Model.style == 0)
+{
+
+
+    @*Thông tin về từng điện thoại *@
+    <div class="chitietdth">
+        <div class="ctietanh" style="margin-left:20px; float: left;width: 300px">
+            <b style="color:red;font-size:20px">@Model.sanpham_name</b><br>
+            <img src="@Url.Content("~/Hinhanh/hinhanhsp/" +@Model.hinhanh_sp)" style="width: 200px;height:200px"><br>
+            <p><i style="color:#ff0000;font-size:20px" class="fa fa-usd"></i>@string.Format("{0:0,0}", @Model.gia_sanpham) VND</p>
+            <!-- <span style="background-color:#4cff00;color:#fff;padding:5px 8px;font-size:20px">Mua hàng <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>-->
+            <!--Lấy giỏ hàng-->
+            @using (Html.BeginForm("ThemGiohang", "Giohang", new { @ma_sp = Model.sanpham_id, @url = Request.Url.ToString() }))
+            {
+                <input class="btn btn-primary" type="submit" id="btnGioHang"
+                       value="Mua hàng" style="background-color:#4cff00;color:#fff;
+                         padding:5px 8px;font-size:20px;cursor:pointer" />
+            }
+
+
+        </div>
+        <h1 style="color:#0d0e5c">Thông số kỹ thuật</h1>
+
+        <div class="row" style="color:#213ce0">
+            <div class="col-sm-4">
+                <b>Hệ điều hành</b>: @Model.he_dieu_hanh <br>
+                <b>Camera sau</b>: @Model.camera_sau <br>
+                <b>Camera trước</b>: @Model.camera_truoc<br>
+                <b>CPU</b>: @Model.cpu <br>
+                <b>RAM</b>: @Model.ram <br>
+                <b>Bộ nhớ trong</b>: @Model.bo_nho_trong
+            </div>
+            <div class="col-sm-4">
+                <b>Thẻ SIM</b>: @Model.sim <br>
+                <b>Kết nối</b>: @Model.ket_noi <br>
+                <b>Dung lượng pin</b>: @Model.pin<br>
+                <b>Thiết kế</b>: Nguyên khối<br>
+                <b>Chức năng đặc biệt</b>:  Mở khóa bằng vân tay <br>
+                <b>Số lượng:</b>:  @Model.soluong_sp <br>
+                <b>Kích thước hình ảnh:</b>  @Model.kichthuoc_hinhanh
+            </div>
+
+        </div>
+    </div>
+
+    <h2 style="color:#0d0e5c">Một số sản phẩm liên quan</h2>
+
+    <div>
+        @Html.Action("dienthoailienquan", "Sanpham", new { @theloai_id = @Model.theloai_id})
+
+    </div>
+}
+else
+{
+
+    <div class="chitietdth">
+        <div class="ctietanh" style="margin-left:20px; float: left;width: 300px">
+            <b style="color:red;font-size:20px">@Model.sanpham_name</b><br>
+            <img src="@Url.Content("~/Hinhanh/hinhanhsp/" +@Model.hinhanh_sp)" style="width: 200px;height:200px"><br>
+            <p><i style="color:#ff0000;font-size:20px" class="fa fa-usd"></i>@string.Format("{0:0,0}", @Model.gia_sanpham) VND</p>
+
+
+            <!-- <span style="background-color:#4cff00;color:#fff;padding:5px 8px;font-size:20px">Mua hàng <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>-->
+            @using (Html.BeginForm("ThemGiohang", "Giohang", new { @ma_sp = Model.sanpham_id, @url = Request.Url.ToString() }))
+            {
+                <input class="btn btn-primary" type="submit" id="btnGioHang"
+                       value="Mua hàng" style="background-color:#4cff00;color:#fff;
+                         padding:5px 8px;font-size:20px;cursor:pointer" />
+            }
+
+        </div>
+        <div class="row" style="color:#213ce0">
+            @Model.chuthich
+        </div>
+    </div>
+
+    <h2 style="color:#0d0e5c">Một số sản phẩm liên quan</h2>
+
+    <div>
+        @*@Html.Action("SanPhamLienQuan", "Sanpham", new { @theloai_id = @Model.theloai_id })*@
+    </div>
+}
+
+
+

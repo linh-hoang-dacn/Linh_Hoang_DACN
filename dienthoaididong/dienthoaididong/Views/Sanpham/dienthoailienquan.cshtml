@@ -1,0 +1,28 @@
+﻿
+@using dienthoaididong.Models.Entities;
+
+@model List<sanpham>
+
+@{
+    ViewBag.Title = "dienthoailienquan";
+}
+
+@foreach (var item in Model)
+{
+    <div class="section-div">
+        <a href="@Url.Action("xemchitiet","Sanpham",new { @masp=item.sanpham_id})">
+            <img src="@Url.Content("~/Hinhanh/hinhanhsp/" +item.hinhanh_sp)" style="width: 220px;height: 237px"><br><br>
+            @item.sanpham_name <br><br><i style="color:#ff0000;font-size:20px" class="fa fa-usd"></i><span>@string.Format("{0:0,0}", @item.gia_sanpham) VND</span>
+            <span style="background-color: #5f9c09;color:#fff;padding:5px 8px"><a href="@Url.Action("xemchitiet", "Sanpham", new {@masp=item.sanpham_id })">Chi tiết</a></span><br /><br />
+            @*<span style="background-color:#ff0000;color:#fff;padding:5px 8px">Mua hàng <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>*@
+            @using (Html.BeginForm("ThemGiohang", "Giohang", new { @ma_sp = item.sanpham_id, @url = Request.Url.ToString() }))
+            {
+
+                <button id="btnGioHang" type="submit" style="background-color:#ff0000;color:#fff;padding:5px 8px">
+                    Mua hàng <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </button>
+            }
+          </a>
+
+</div>
+}

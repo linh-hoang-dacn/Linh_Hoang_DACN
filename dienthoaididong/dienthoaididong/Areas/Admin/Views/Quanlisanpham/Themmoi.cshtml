@@ -1,0 +1,212 @@
+﻿@model dienthoaididong.Models.Entities.sanpham
+
+@{
+    ViewBag.Title = "Themmoi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm mới sản phẩm</h2>
+@* Thêm thuộc tính  *@
+@using (Html.BeginForm("Themmoi", "Quanlisanpham", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @*<legend>sanpham</legend>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sanpham_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sanpham_name)
+            @Html.ValidationMessageFor(model => model.sanpham_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.gia_sanpham)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.gia_sanpham)
+            @Html.ValidationMessageFor(model => model.gia_sanpham)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.soluong_sp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.soluong_sp)
+            @Html.ValidationMessageFor(model => model.soluong_sp)
+            @* Kiểm tra rỗng *@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.theloai_id)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("theloai_id") @*trùng tên ViewBag*@
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.hinhanh_sp)
+        </div>
+        <div class="editor-field">
+            @*name trùng với tên với tham số bên controler*@
+            <input type="file" name="UrlAnh" />
+            @* Thông báo trùng *@
+            @ViewBag.Thongbao
+        </div>
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.hinhanh_sp1)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.hinhanh_sp1)
+                @Html.ValidationMessageFor(model => model.hinhanh_sp1)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.hinhanh_sp3)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.hinhanh_sp3)
+                @Html.ValidationMessageFor(model => model.hinhanh_sp3)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.hinhanh_sp4)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.hinhanh_sp4)
+                @Html.ValidationMessageFor(model => model.hinhanh_sp4)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.kichthuoc_hinhanh)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.kichthuoc_hinhanh)
+                @Html.ValidationMessageFor(model => model.kichthuoc_hinhanh)
+            </div> *@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.camera_truoc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.camera_truoc)
+            @Html.ValidationMessageFor(model => model.camera_truoc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.camera_sau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.camera_sau)
+            @Html.ValidationMessageFor(model => model.camera_sau)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.he_dieu_hanh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.he_dieu_hanh)
+            @Html.ValidationMessageFor(model => model.he_dieu_hanh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cpu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cpu)
+            @Html.ValidationMessageFor(model => model.cpu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ram)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ram)
+            @Html.ValidationMessageFor(model => model.ram)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.bo_nho_trong)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bo_nho_trong)
+            @Html.ValidationMessageFor(model => model.bo_nho_trong)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.the_nho)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.the_nho)
+            @Html.ValidationMessageFor(model => model.the_nho)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sim)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sim)
+            @Html.ValidationMessageFor(model => model.sim)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ket_noi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ket_noi)
+            @Html.ValidationMessageFor(model => model.ket_noi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pin)
+            @Html.ValidationMessageFor(model => model.pin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.moi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.moi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.style)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.style)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.chuthich)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.chuthich)
+            @Html.ValidationMessageFor(model => model.chuthich)
+        </div>
+        <p>
+            <br />
+            <input style="color:blue" type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+<style>
+    input[type=text] {
+        width: 343px;
+    }
+</style>

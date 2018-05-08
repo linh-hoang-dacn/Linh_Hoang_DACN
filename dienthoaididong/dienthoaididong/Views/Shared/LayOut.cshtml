@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*@"Chèn link css"*@
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/NguoidungCssLayOut/style.css" rel="stylesheet" />
+
+    @*Chèn CSS thiết kế trang web*@
+    <link href="~/Content/NguoidungCssLayOut/NguoiDungCss.css" rel="stylesheet" />
+
+    @*chen font*@
+    <link href="~/Content/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    @*Chen link css ,javaScript nivo slider*@
+    <link href="~/nivoSider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.12.2.min.js"></script>
+    <script src="~/nivoSider/jquery.nivo.slider.js"></script>
+    <script src="~/nivoSider/jquery.nivo.slider.pack.js"></script>
+
+</head>
+
+<body>
+    <div class="toantrang" style="background-color:#0a0758">
+
+        <!--"Phần đầu"-->
+        <div style="height:48px"></div>
+    </div>
+
+
+    <!--"Phần Menu"-->
+    <div id="noi" class="nav">
+
+        <ul>
+            <li>
+                <a href="/Home/Index">
+                    <div id="ic">
+                      <i class="fa fa-home"></i>
+                    </div>
+                    <div id="dm"><b>Trang chủ</b></div></a>
+            </li>
+            <li>
+                <a href="#">
+                    <div id ="ic"><i class="fa fa-list"></i></div> 
+                    <div id="dm">
+                        <b>Danh mục</b>
+                    </div>
+                </a>
+
+                <ul>
+                    @Html.Action("danhmucdienthoai", "Danhmuc")
+                </ul>
+            </li>
+
+            <li>            
+                    <a href="#">
+                        <div id="ic"> <i class="fa fa-headphones"></i></div>
+                        <div id="dm"><b>Phụ kiện</b></div>
+                    </a>
+                    <ul>
+                        @Html.Action("danhmucphukien", "Danhmuc")
+                    </ul>
+</li>
+
+            <li>
+                <a href="/Tintuc/Index">
+                <div id="ic"><i class="fa fa-file-text-o"></i></div>
+                    <div id="dm"><b>Tin tức</b></div></a>
+            </li>
+
+            <li>
+                    <a href="/Khuyenmai/Index">
+                    <div id="ic"><i class="fa fa-gift"></i></div>
+                    <div id="dm"><b>Khuyến mại</b></div></a>
+            </li>
+        </ul>
+
+        @* Phần đăng nhập đăng xuất *@
+        @if (Session["Taikhoan"] == null || Session["Taikhoan"] == "")
+        {
+            <div id="kn" class="DangKyDangNhap">
+               
+                <div id="ca" >
+                    @Html.ActionLink("Đăng Ký", "DangKy", "Nguoidung", null, htmlAttributes: new { @class = "DangKy" })
+                </div>
+               
+                <div style="width:20px;padding-left:6px;padding-right:6px; float:left">
+                    <i style="color:red ;text-align:center" class="fa fa-sign-in"></i>
+                </div>
+                <div id="ca">
+                    @Html.ActionLink("Đăng Nhập", "DangNhap", "Nguoidung", null, htmlAttributes: new { @class = "DangNhap" })
+                </div>
+            </div>
+        }
+
+        else
+        {
+              <div id="kn" style="color:white" class="DangKyDangNhap">
+                    <li class="col-md-2">
+                        <i style="color:red" class="fa fa-users" aria-hidden="true"></i>
+                        @Session["tentaikhoan"]
+
+                        <ul style="color:white;font-size:16px" class="dropdown-menu animated fadeInUp">
+                            <li><a href="@Url.Action("Details", "Nguoidung")">Profile</a></li>
+                            <li><a href="@Url.Action("Dangnhap","Nguoidung")">Log_Out</a></li>
+                            <li><a href="@Url.Action("Dangky","Nguoidung")">Đăng ký</a></li>
+                        </ul>
+                    </li>
+               </div>
+           
+        
+        }
+
+        @* Thêm giỏ hàng *@
+        <div id="ggh" style="width: 40px; float: left; height: 20px; margin-left: 30px; margin-top:5px;">
+            @Html.Action("GiohangPartial", "GioHang")
+        </div>
+
+        @* Phần tìm kiếm *@
+        <div style="width:200px;float:left; padding-top:7px;">
+            @using (Html.BeginForm("Ketquatimkiem", "Timkiem", FormMethod.Post))
+            {
+                @Html.TextBox("txtTimkiem", "", htmlAttributes: new { @class = "TextboxTimkiem", @placeholder = "Nhập từ khóa cần tìm kiếm vào đây" })
+
+            }
+
+        </div>
+    
+    </div>
+
+
+
+
+
+    <div style="height:20px;background-color:#ffd800"></div>
+
+
+    @* chen hinh anh dong *@
+    <div id="slider" class="nivoSlider">
+
+        <img src="~/Hinhanh/02_04_2016_09_19_45_TGDD-LG-K10-800-300-ver2.jpg" />
+        <img src="~/Hinhanh/17_03_2016_16_15_21_TGDD-ZTE-Wave3-800-300.jpg" />
+        <img src="~/Hinhanh/18_03_2016_16_51_27_TGDD-iPhone6s-800-300.jpg" />
+        <img src="~/Hinhanh/19_03_2016_10_32_38_TGDD-Launching-Galaxy-S7-800-300.jpg" />
+        <img src="~/Hinhanh/22_03_2016_14_50_03_TGDD-Le-hoi-Galaxy-800-300.jpg" />
+    </div>
+
+    @*Hình ảnh khuyến mại*@
+    <div class="km">
+        <a href="/Khuyenmai/Index">
+            <img style="width:333px" src="/Hinhanh/photoshop.png">
+        </a>
+
+    </div>
+
+    @*Nội dung hiện thị*@
+    @RenderBody()
+
+
+    <!--"Phần cuối"-->
+    <div class="footer" style="background-color:#c1baef;font-size:20px">
+        <address style="text-align: left;">
+            Designed by Team_LinhHo<br />
+            Email:<a href="linhho1272@gmail.com">linhho1272@gmail.com</a><i style="color:black" class="fa fa-envelope"> </i>
+        </address>
+
+        <div style="font-size: 20px; font-weight: bold; color: #0a0758; text-align:left; direction: rtl;">
+            SHOP ĐIỆN THOẠI DI ĐỘNG HÀNG ĐẦU HỌC VIỆN <br />
+            Trụ sở chính: 200 Lê Duẩn <br />
+            Chi nhánh: số TH12A,Tòa Nhà H5,Công Viên Công Nghệ <br />
+            Điện thoại:<i style="color:black;font-size:20px" class="fa fa-phone-square"></i> DN - 0905398843 <br />
+            Mã số doanh nghiệp:13145 do Sở Kế hoạch và Đầu tư TP. Đà Nẵng cấp lần đầu ngày 15/04/2018
+        </div>
+    </div>
+    @*Script chay nivo-Slider*@
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+
+</body>
+</html>
+<style>
+    .nivo-controlNav {
+        display: none;
+    }
+    .AVAST_PAM_nonloginform {
+        margin-left:13px;
+    }
+</style>

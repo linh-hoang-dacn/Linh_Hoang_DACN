@@ -1,0 +1,170 @@
+﻿@model dienthoaididong.Models.Entities.sanpham
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<fieldset>
+    <legend>sanpham</legend>
+    <div id="ct">
+        <b style="color:red;font-size:16px">@Model.sanpham_name</b><br>
+        <img src="@Url.Content("~/Hinhanh/hinhanhsp/" +@Model.hinhanh_sp)" style="width: 300px;height:300px"><br>
+    </div>
+    <div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.sanpham_id)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.sanpham_id)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.sanpham_name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.sanpham_name)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.gia_sanpham)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.gia_sanpham)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.soluong_sp)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.soluong_sp)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.theloaisp.theloai_name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.theloai_id)
+        </div>
+
+       
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.camera_truoc)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.camera_truoc)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.camera_sau)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.camera_sau)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.he_dieu_hanh)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.he_dieu_hanh)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.cpu)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.cpu)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.ram)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ram)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.bo_nho_trong)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.bo_nho_trong)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.the_nho)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.the_nho)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.sim)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.sim)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.ket_noi)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ket_noi)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.pin)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.pin)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.chuthich)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.chuthich)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.moi)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.moi)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.style)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.style)
+        </div>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.sanpham_id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.sanpham_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    .display-label {
+        float: left;
+    }
+
+    .display-field {
+        margin-left: 100px;
+        color: blue;
+    }
+
+    a {
+        color: red;
+    }
+
+        a:hover {
+            color: blue;
+        }
+        #ct{
+            float:left;
+        }
+</style>
